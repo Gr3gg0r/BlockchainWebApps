@@ -23,5 +23,10 @@ Ada beberapa software yang perlu korang pasang pada computer korang sebelum mema
 
    ```npm install -g ganache-cli```
    
-3. Metamask Chrome Extension - Ini membenarkan korang untuk menggunakan Wallet dalam browser korang      untuk bayar gas atau cukai. KOrang boleh guna ganache-cli testrpc wallet ada 10 acc semua ada dalam 100 eth lagi.
-4. Visuat Studio Code. - 
+
+3. Visuat Studio Code. - atau text editor kebiasaan korang yang lain .
+
+
+#### Langkah Pertama
+
+Sila melayari http://remix.ethereum.org/
