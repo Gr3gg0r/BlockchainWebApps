@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" type="text/css" href="main.css">
 
-	<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@0.20.6/dist/web3.min.js"></script>
 
 </head>
 <body>
@@ -40,12 +40,10 @@
             web3 = new Web3(web3.currentProvider);
         } else {
             // set the provider you want from Web3.providers
-			var web3 = new Web3('ws://127.0.0.1:8545');
+            web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
         }
 
         web3.eth.defaultAccount = web3.eth.accounts[0];
-
-
 
         var CoursetroContract = new web3.eth.Contract([
 	{
@@ -101,6 +99,7 @@
 		"name": "Instructor",
 		"type": "event"
 	}
+<<<<<<< HEAD
 ],'0x9292302fc569B724D5b2a0c6dD6bE0d5FF70CcB6');
 
 console.log(CoursetroContract);
@@ -126,6 +125,12 @@ instructorEvent.watch( function(error,result) {
 $("#button").click(function() {
             VilRux.setInstructor($("#name").val(), $("#age").val()).send({from:'0xFa815Ca7536E6BACAd9F57a1F827AaFbe552C987'});
 });
+=======
+],'0xC02ED54C6d3a4d699Beb0FBaC80a938385CB72C0');
+
+console.log(CoursetroContract);
+
+>>>>>>> parent of ffde233... Update index.html
 
 
 
