@@ -29,4 +29,9 @@ Ada beberapa software yang perlu korang pasang pada computer korang sebelum mema
 
 #### Langkah Pertama
 
-Sila melayari http://remix.ethereum.org/
+Sila melayari http://remix.ethereum.org/, kat sini korang akan dihidangkan dengan interface baru , disebabkan tutorial2 kebanyakan tidak menngunakan interface baru tersebut.
+
+Dalam tutorial ni aku buat adaptasi la dari new interface of Remix IDE.
+
+![GitHub Logo](/images/home.png)
+
