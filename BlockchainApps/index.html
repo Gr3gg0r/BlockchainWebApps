@@ -7,8 +7,8 @@
     <title>Document</title>
 
     <link rel="stylesheet" type="text/css" href="main.css">
-
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+
 
 </head>
 <body>
@@ -30,7 +30,7 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-
+    
     <script>
          if (typeof web3 !== 'undefined') {
             web3 = new Web3(web3.currentProvider);
@@ -78,11 +78,12 @@
 		"stateMutability": "view",
 		"type": "function"
 	}
-],'0xFb923da503dB7b1512890799838D93add77991af');
+],'0xead9bD23aa6695a85eFEa42d037299294A1c0B13');
         console.log(testContract);
 
         testContract.methods.getInstructor().call(function(error,result){
             if (!error){
+                console.log(result)
                 $('#instructor').html(result[0]+ '(' +result[1]+ 'years old )');
             }else{
                 console.log(error);
