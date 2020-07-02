@@ -16,7 +16,9 @@
 
         <h1>Coursetro Instructor</h1>
 
-        <h2 id="instructor"></h2>
+		<h2 id="instructor"></h2>
+		<img id="loader" src="https://i.pinimg.com/originals/f9/41/ae/f941ae9d16fd7d2957eea6e5b1100d1e.gif">
+
 
         <label for="name" class="col-lg-2 control-label">Instructor Name</label>
         <input id="name" type="text">
@@ -81,23 +83,45 @@
 		"payable": false,
 		"stateMutability": "view",
 		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"name": "age",
+				"type": "uint256"
+			}
+		],
+		"name": "Instructor",
+		"type": "event"
 	}
-],'0x6C5090ef981291BB4f3a558E7Ca74809F2B79780');
+],'0x9292302fc569B724D5b2a0c6dD6bE0d5FF70CcB6');
 
 console.log(CoursetroContract);
 
-var VilRux = CoursetroContract.methods;
+var VilRux = CoursetroContract.events;
 
-VilRux.getInstructor().call(function(error, result){
-            if(!error)
-                {
-                    $("#instructor").html(result[0]+' ('+result[1]+' years old)');
-                    console.log(result);
-                }
-            else
-                console.error(error);
-        }
-);
+var instructorEvent = VilRux.Instructor();
+
+instructorEvent.watch( function(error,result) {
+
+	if(!error){
+		$('#loader').hide();
+		$('#instructor').html(result.args.name + '(' + result.args.age + ' Years Old )');
+	
+	}else{
+		$('#loader').hide();
+		console.log(error);
+	}
+
+});
+
 
 $("#button").click(function() {
             VilRux.setInstructor($("#name").val(), $("#age").val()).send({from:'0xFa815Ca7536E6BACAd9F57a1F827AaFbe552C987'});
