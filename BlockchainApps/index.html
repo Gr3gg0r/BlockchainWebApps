@@ -78,7 +78,7 @@
 		"stateMutability": "view",
 		"type": "function"
 	}
-],'0xFb923da503dB7b1512890799838D93add77991af');
+],'0x29313831a41616a6789C41dBd8739f120aCDEE7b');
         console.log(testContract);
 
         testContract.methods.getInstructor().call(function(error,result){
@@ -90,7 +90,7 @@
         });
 
         $('#button').click(function(){
-            testContract.methods.setInstructor($('#name').val(),$('#age').val()).send();
+            testContract.methods.setInstructor($('#name').val(),$('#age').val());
         });
 
     </script>
