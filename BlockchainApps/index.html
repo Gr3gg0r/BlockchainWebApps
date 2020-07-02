@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" type="text/css" href="main.css">
 
-    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@0.20.6/dist/web3.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
 
 </head>
 <body>
@@ -38,10 +38,12 @@
             web3 = new Web3(web3.currentProvider);
         } else {
             // set the provider you want from Web3.providers
-            web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+			var web3 = new Web3('ws://127.0.0.1:8545');
         }
 
         web3.eth.defaultAccount = web3.eth.accounts[0];
+
+
 
         var CoursetroContract = new web3.eth.Contract([
 	{
@@ -80,10 +82,26 @@
 		"stateMutability": "view",
 		"type": "function"
 	}
-],'0xC02ED54C6d3a4d699Beb0FBaC80a938385CB72C0');
+],'0x6C5090ef981291BB4f3a558E7Ca74809F2B79780');
 
 console.log(CoursetroContract);
 
+var VilRux = CoursetroContract.methods;
+
+VilRux.getInstructor().call(function(error, result){
+            if(!error)
+                {
+                    $("#instructor").html(result[0]+' ('+result[1]+' years old)');
+                    console.log(result);
+                }
+            else
+                console.error(error);
+        }
+);
+
+$("#button").click(function() {
+            VilRux.setInstructor($("#name").val(), $("#age").val()).send({from:'0xFa815Ca7536E6BACAd9F57a1F827AaFbe552C987'});
+});
 
 
 
